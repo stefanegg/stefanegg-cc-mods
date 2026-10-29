@@ -4,7 +4,7 @@ import type { CommandInfo, EngineInterface, Register, RenderChildren } from 'cla
 import type { Catalog, ModEntry, SkillEntry, SkillOrigin, Tab } from '../types'
 
 const PANE = 'toolbox'
-const TITLE = 'Skills & mods'
+const TITLE = 'Toolbox: Skills & Mods'
 const PROMPT_LIMIT = 12000
 
 const catalog = atom({ plugin: 'toolbox', key: 'catalog' } as const, null)
@@ -287,7 +287,7 @@ export const register: Register = on => {
     void refresh($)
     await $.ui.open({ id: PANE, title: TITLE })
 
-    return { text: 'Skills & mods pane opened.' }
+    return { text: 'Toolbox pane opened.' }
   })
 
   on('ui.render', { component: 'Pane', requestId: PANE }, async ($, e) => {

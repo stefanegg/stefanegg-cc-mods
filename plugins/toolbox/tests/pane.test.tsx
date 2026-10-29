@@ -5,7 +5,7 @@ const PANE = {
   component: 'Pane',
   requestId: 'toolbox',
   props: {
-    title: 'Skills & mods',
+    title: 'Toolbox: Skills & Mods',
     isFocused: false,
     bodyColumns: 50,
     placement: 'dock',
