@@ -1,0 +1,12 @@
+{
+  "name": "stefanegg-cc-mods",
+  "description": "Claude Code mods by stefanegg",
+  "owner":{ "name": "stefanegg", "url": "https://github.com/stefanegg" },
+  "plugins": [
+    {
+      "name": "toolbox",
+      "source": "./plugins/toolbox",
+      "description": "A side pane listing every skill and mod you have, with descriptions, prompts and a button to use each"
+    }
+  ]
+}
