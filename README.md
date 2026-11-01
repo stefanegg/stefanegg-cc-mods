@@ -5,6 +5,7 @@ A Claude Code marketplace of mods by stefanegg.
 | Mod | What it does |
 | --- | --- |
 | [toolbox](plugins/toolbox) | A side pane listing every skill and mod you have, with descriptions, prompts and a button to use each |
+| [pins](plugins/pins) | A side pane of pinned files, grouped by repository and kept across sessions |
 
 ## Install a mod
 

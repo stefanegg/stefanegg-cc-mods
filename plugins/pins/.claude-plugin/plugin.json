@@ -1,0 +1,9 @@
+{
+  "name": "pins",
+  "version": "0.1.0",
+  "description": "A side pane of pinned files (markdown notes, specs, READMEs), grouped by repository and kept across sessions",
+  "author": { "name": "stefanegg", "url": "https://github.com/stefanegg" },
+  "homepage": "https://github.com/stefanegg/stefanegg-cc-mods",
+  "license": "MIT",
+  "types": "./types/index.d.ts"
+}

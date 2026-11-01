@@ -7,6 +7,11 @@
       "name": "toolbox",
       "source": "./plugins/toolbox",
       "description": "A side pane listing every skill and mod you have, with descriptions, prompts and a button to use each"
+    },
+    {
+      "name": "pins",
+      "source": "./plugins/pins",
+      "description": "A side pane of pinned files (markdown notes, specs, READMEs), grouped by repository and kept across sessions"
     }
   ]
 }
