@@ -105,7 +105,6 @@ export const register: Register = on => {
     await $.command.register({ name: 'pin', description: 'Pin a file: /pin <path>' })
     await $.command.register({ name: 'unpin', description: 'Unpin a file: /unpin <path>' })
     await loadPins($)
-    if (e.isInteractive) void $.ui.open({ id: PANE, title: TITLE })
 
     return result
   })

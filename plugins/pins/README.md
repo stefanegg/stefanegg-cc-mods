@@ -4,7 +4,7 @@ A Claude Code mod that adds a **Pinned Files** side pane for the markdown files 
 
 - Each pin is a card with the file name and its path inside the repository. Press the name to open the file in the app's file viewer: the pane cannot do that itself, so it asks the session to open it, which costs one short turn. **Add to prompt** adds `@path` to the prompt at the caret (relative to the session's folder when the file is inside it, else absolute) without touching what you typed; hovering the pin icon strikes it through, and pressing it unpins (a ✕ button in a terminal).
 - Pins are grouped under the repository they sit in (the nearest folder with a `.git`).
-- The pane opens when a session starts.
+- `/pins` shows or hides the pane. It does not open by itself: the app only draws a pane a mod opens on its own when the window is very wide, so the mod leaves opening to you.
 
 ## Commands
 
