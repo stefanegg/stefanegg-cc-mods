@@ -48,9 +48,10 @@ const readText = ($: EngineInterface, path: string) =>
     () => undefined,
   )
 
-// `~/x` and `x` (against the session's folder) become absolute paths.
+// `~/x` and `x` (against the session's folder) become absolute paths; a leading
+// `@` is the prompt's file mention and is dropped.
 const resolvePath = async ($: EngineInterface, raw: string) => {
-  const text = raw.trim().replace(/^(["'])([\s\S]*)\1$/, '$2')
+  const text = raw.trim().replace(/^@/, '').replace(/^(["'])([\s\S]*)\1$/, '$2')
   if (text.startsWith('/')) return text
   if (text === '~' || text.startsWith('~/')) return `${(await $.env.get('HOME')) ?? ''}${text.slice(1)}`
   const cwd = await $.session.cwd()

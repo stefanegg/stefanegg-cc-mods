@@ -51,3 +51,25 @@ test('lists stored pins by repository and opens a file in the viewer and unpins'
   expect(stored).toEqual([{ path: '/r/notes/docs/plan.md', repo: '/r/notes' }])
   await ui.unmount()
 })
+
+test('/pin takes a path written as an @ mention', async ($, on) => {
+  on('command.register', () => ({ value: { command: 'pin' } }))
+  on('ui.open', () => ({ value: { isPlaced: true } }))
+  on('session.start', (_, e) => ({ cwd: e.cwd }))
+  on('store.get', () => ({ value: [] }))
+  const saved: unknown[] = []
+  on('store.set', (_, e: any) => {
+    saved.push(e.value)
+
+    return { value: undefined }
+  })
+  on('fs.read', (_, e: any) => (e.path === '/r/notes/docs/plan.md' ? { value: '# Plan' } : (() => { throw new Error('ENOENT') })()))
+  on('fs.list', () => ({ value: [{ name: '.git', kind: 'dir', size: 0, mtimeMs: 0, isLink: false }] }))
+  on('session.cwd', () => ({ value: '/r/notes' }))
+
+  await $.session.start({ cwd: '/r/notes', surface: 'desktop', isInteractive: true })
+  const result = await $.command.run({ command: 'pin', args: '@docs/plan.md' })
+
+  expect(result.text).toBe('Pinned /r/notes/docs/plan.md')
+  expect(saved.at(-1)).toEqual([{ path: '/r/notes/docs/plan.md', repo: '/r/notes/docs' }])
+})
